@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>WebLab001</title>
+    <style>
+
+        #header {
+            background: darkblue;
+            color: ghostwhite;
+            font-size: 50px;
+            width: 100%;
+            height: 70px;
+            margin: -10px -10px 10px -10px;
+            padding: 10px 20px;
+        }
+
+        @media (max-width: 640px) {
+            #header {
+                background: darkblue;
+                color: ghostwhite;
+                font-size: 20px;
+                width: 100%;
+                height: 40px;
+                margin: -10px -10px 10px -10px;
+                padding: 10px 20px;
+            }
+        }
+
+        body {
+            font-family: CarrieCattSH;
+            background: cornflowerblue url("pictures/cat_background.png") no-repeat bottom;
+            background-size: contain;
+            height: 100vh;
+        }
+
+
+        #main {
+            display: flex;
+            justify-content: center;
+        }
+
+        #graph {
+            width: 500px;
+            height: 500px;
+        }
+
+        #graph img {
+            width: 500px;
+            height: 500px;
+        }
+
+        @media (max-width: 1050px) {
+            #main {
+                flex-direction: column;
+            }
+
+            #form_space {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 670px) {
+            #form_space {
+                width: auto;
+            }
+        }
+
+        #form_space {
+            border-radius: 50px;
+            background-color: rgba(135, 206, 250, 0.3);
+            padding: 10px;
+        }
+
+        #form_space > div {
+            border-radius: 13em/2em;
+            margin: 20px;
+            background-color: rgba(135, 206, 250, 0.7);
+            text-align: center;
+            font-size: 30px;
+            color: darkblue;
+        }
+
+        .for_x label{
+            font-size: 20px;
+            alignment: bottom;
+            font-family: monospace;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="header">LAB001 KUZNECOV ALEXANDR P3211 VARIANT 2213</div>
+<div id="main">
+    <div id="graph"><img src="pictures/areas.png" alt="график"></div>
+    <form name="contents" method="get" action="answer.php">
+        <div id="form_space">
+
+            <div class="for_x">
+                <div>value x</div>
+                <div>
+                    <label for="checkbox_x=-3">-3<input type="checkbox" id="checkbox_x=-3" name="x" value="-3"></label>
+
+
+                    <label for="checkbox_x=-2">-2<input type="checkbox" id="checkbox_x=-2" name="x" value="-2"></label>
+
+
+                    <label for="checkbox_x=-1">-1<input type="checkbox" id="checkbox_x=-1" name="x" value="-1"></label>
+
+
+                    <label for="checkbox_x=0">0<input type="checkbox" id="checkbox_x=0" name="x" value="0"></label>
+
+
+                    <label for="checkbox_x=1">1<input type="checkbox" id="checkbox_x=1" name="x" value="1"></label>
+
+
+                    <label for="checkbox_x=2">2<input type="checkbox" id="checkbox_x=2" name="x" value="2"></label>
+
+
+                    <label for="checkbox_x=3">3<input type="checkbox" id="checkbox_x=3" name="x" value="3"></label>
+
+
+                    <label for="checkbox_x=4">4<input type="checkbox" id="checkbox_x=4" name="x" value="4"></label>
+
+
+                    <label for="checkbox_x=5">5<input type="checkbox" id="checkbox_x=5" name="x" value="5"></label>
+
+
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="for_y">
+                <div>value y</div>
+                <div>
+                    <input type="text" id="y_textfield" name="y" placeholder="(-5;5)" maxlength="8" required>
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="for_r">
+                <div>value r</div>
+                <div>
+                    <label for="radio_r=1">1,0<input type="radio" id="radio_r=1" name="r" value="1.0" ></label>
+
+
+                    <label for="radio_r=1,5">1,5<input type="radio" id="radio_r=1,5" name="r" value="1.5"></label>
+
+
+                    <label for="radio_r=2">2,0<input type="radio" id="radio_r=2" name="r" value="2.0" required></label>
+
+
+                    <label for="radio_r=2,5">2,5<input type="radio" id="radio_r=2,5" name="r" value="2.5"></label>
+
+
+                    <label for="radio_r=3">3,0<input type="radio" id="radio_r=3" name="r" value="3.0"></label>
+
+
+                    <br><br>
+                </div>
+            </div>
+
+            <div class="for_buttons">
+                <button  type="submit">submit</button>
+                <button type="reset" name="reset">reset</button>
+                <button name="clear_table">clear table</button>
+                <br><br>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
