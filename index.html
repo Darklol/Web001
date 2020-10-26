@@ -5,6 +5,10 @@
     <title>WebLab001</title>
     <style>
 
+        @font-face {
+            local(fonts/carriecat.ttf)
+        }
+
         #header {
             background: darkblue;
             color: ghostwhite;
@@ -87,46 +91,27 @@
             font-family: monospace;
         }
 
-
-
     </style>
 </head>
 <body>
 <div id="header">LAB001 KUZNECOV ALEXANDR P3211 VARIANT 2213</div>
 <div id="main">
     <div id="graph"><img src="pictures/areas.png" alt="график"></div>
-    <form name="contents" method="get" action="answer.php">
+    <form name="contents">
         <div id="form_space">
 
             <div class="for_x">
                 <div>value x</div>
                 <div>
-                    <label for="checkbox_x=-3">-3<input type="checkbox" id="checkbox_x=-3" name="x" value="-3"></label>
-
-
-                    <label for="checkbox_x=-2">-2<input type="checkbox" id="checkbox_x=-2" name="x" value="-2"></label>
-
-
-                    <label for="checkbox_x=-1">-1<input type="checkbox" id="checkbox_x=-1" name="x" value="-1"></label>
-
-
-                    <label for="checkbox_x=0">0<input type="checkbox" id="checkbox_x=0" name="x" value="0"></label>
-
-
-                    <label for="checkbox_x=1">1<input type="checkbox" id="checkbox_x=1" name="x" value="1"></label>
-
-
-                    <label for="checkbox_x=2">2<input type="checkbox" id="checkbox_x=2" name="x" value="2"></label>
-
-
-                    <label for="checkbox_x=3">3<input type="checkbox" id="checkbox_x=3" name="x" value="3"></label>
-
-
-                    <label for="checkbox_x=4">4<input type="checkbox" id="checkbox_x=4" name="x" value="4"></label>
-
-
-                    <label for="checkbox_x=5">5<input type="checkbox" id="checkbox_x=5" name="x" value="5"></label>
-
+                    <label>-3<input type="checkbox" name="x" value="-3"></label>
+                    <label>-2<input type="checkbox" name="x" value="-2"></label>
+                    <label>-1<input type="checkbox" name="x" value="-1"></label>
+                    <label>0<input type="checkbox" name="x" value="0"></label>
+                    <label>1<input type="checkbox" name="x" value="1"></label>
+                    <label>2<input type="checkbox" name="x" value="2"></label>
+                    <label>3<input type="checkbox" name="x" value="3"></label>
+                    <label>4<input type="checkbox" name="x" value="4"></label>
+                    <label>5<input type="checkbox" name="x" value="5"></label>
 
                     <br><br>
                 </div>
@@ -143,27 +128,18 @@
             <div class="for_r">
                 <div>value r</div>
                 <div>
-                    <label for="radio_r=1">1,0<input type="radio" id="radio_r=1" name="r" value="1.0" ></label>
-
-
-                    <label for="radio_r=1,5">1,5<input type="radio" id="radio_r=1,5" name="r" value="1.5"></label>
-
-
-                    <label for="radio_r=2">2,0<input type="radio" id="radio_r=2" name="r" value="2.0" required></label>
-
-
-                    <label for="radio_r=2,5">2,5<input type="radio" id="radio_r=2,5" name="r" value="2.5"></label>
-
-
-                    <label for="radio_r=3">3,0<input type="radio" id="radio_r=3" name="r" value="3.0"></label>
-
+                    <label>1,0<input type="radio" name="r" value="1.0" ></label>
+                    <label>1,5<input type="radio" name="r" value="1.5"></label>
+                    <label>2,0<input type="radio" name="r" value="2.0" required></label>
+                    <label>2,5<input type="radio" name="r" value="2.5"></label>
+                    <label>3,0<input type="radio" name="r" value="3.0"></label>
 
                     <br><br>
                 </div>
             </div>
 
             <div class="for_buttons">
-                <button  type="submit">submit</button>
+                <button  type="submit" id="submit">submit</button>
                 <button type="reset" name="reset">reset</button>
                 <button name="clear_table">clear table</button>
                 <br><br>
@@ -172,5 +148,6 @@
     </form>
 </div>
 <script src="script.js"></script>
+<script src="jquery.js"></script>
 </body>
 </html>

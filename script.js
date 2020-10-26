@@ -1,19 +1,57 @@
 "use strict";
-let x, y, r;
+let y, r, x;
 
-$('.y_value').on('input', validate);
-function validate(e) {
-    var $item = $(this),
-        value = $item.val();
-    var st = new RegExp('[^a-zA-Z0-9]+');
-    if (!st.test(value)) {
-        // прошли проверку - всё ок
-        return true;
-    } else {
-        // не даю ввести неправильный символ
-        e.preventDefault();
-        // подключен скрипт sweetalert.js
-        // показываю алерт, что это была опечатка
-        swal ( 'Опечатка' ,  'можно только буквы и цифры' ,  'error' );
+
+document.onsubmit = function () {
+    try {
+        x = document.querySelector("input[type=checkbox]:checked").value;
+        y = document.getElementById("y_textfield").value.replace(",", ".");
+        r = document.querySelector('input[name="r"]:checked').value;
+        let str = '?x=' + x + '&y=' + y + '&r=' + r;
+        fetch("scripts/answer.php" + str, {
+            method: "GET",
+            headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
+        }).then(response => response.text()).then(function (serverAnswer) {
+            document.getElementById("outputContainer").innerHTML = serverAnswer;
+        }).catch(err => alert("Ошибка HTTP. Повторите попытку позже." + err));
+    } catch (e) {
+        alert(e);
     }
+};
+
+
+function validateX() {
+    try {
+        x = document.getElementsByName('x').value;
+        return true;
+    } catch (err) {
+        alert(err);
+        return false;
+    }
+}
+
+function validateY() {
+    y = document.getElementById("y_textfield").value.replace(",", ".");
+    alert(y);
+    if (y === undefined) {
+        return false;
+    } else if (!isNumeric(y)) {
+        return false;
+    } else if (!((y > -3) && (y < 5))) {
+        return false;
+    } else return true;
+}
+
+function validateR() {
+    try {
+        r = document.getElementById('r').value;
+        return true;
+    } catch (err) {
+        alert(err);
+        return false;
+    }
+}
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
