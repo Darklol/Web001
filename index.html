@@ -6,13 +6,14 @@
     <style>
 
         @font-face {
-            local(fonts/carriecat.ttf)
+            font-family: CarrieCattSH;
+            src: url("fonts/carriecat.ttf");
         }
 
         #header {
             background: darkblue;
             color: ghostwhite;
-            font-size: 50px;
+            font-size: xx-large;
             width: 100%;
             height: 70px;
             margin: -10px -10px 10px -10px;
@@ -56,15 +57,18 @@
 
         @media (max-width: 1050px) {
             #main {
-                flex-direction: column;
-            }
-
-            #form_space {
-                text-align: center;
+                flex-direction: row;
             }
         }
 
-        @media (max-width: 670px) {
+        @media (max-width: 800px) {
+            #graph {
+                width: 100%;
+                text-align: center;
+            }
+            #main{
+                flex-direction: column;
+            }
             #form_space {
                 width: auto;
             }
@@ -74,6 +78,7 @@
             border-radius: 50px;
             background-color: rgba(135, 206, 250, 0.3);
             padding: 10px;
+            text-align: center;
         }
 
         #form_space > div {
@@ -91,18 +96,42 @@
             font-family: monospace;
         }
 
+        #output {
+            display: table;
+            width: 100%;
+            font-size: 20px;
+            color: darkblue;
+            border-spacing: 2px;
+            margin: auto;
+        }
+
+        table{
+            align-content: center;
+            border: 4px darkblue;
+            margin: auto;
+        }
+
+        #output td{
+            background-color: rgba(135, 206, 250, 0.7);
+            border-radius: 10px;
+        }
+
+        #output th{
+            border-radius: 10px;
+            background-color: rgb(135, 206, 250);
+        }
+
     </style>
 </head>
 <body>
 <div id="header">LAB001 KUZNECOV ALEXANDR P3211 VARIANT 2213</div>
 <div id="main">
     <div id="graph"><img src="pictures/areas.png" alt="график"></div>
-    <form name="contents">
         <div id="form_space">
-
             <div class="for_x">
                 <div>value x</div>
                 <div>
+
                     <label>-3<input type="checkbox" name="x" value="-3"></label>
                     <label>-2<input type="checkbox" name="x" value="-2"></label>
                     <label>-1<input type="checkbox" name="x" value="-1"></label>
@@ -139,15 +168,24 @@
             </div>
 
             <div class="for_buttons">
-                <button  type="submit" id="submit">submit</button>
-                <button type="reset" name="reset">reset</button>
-                <button name="clear_table">clear table</button>
+                <button id="submit">submit</button>
+                <button id="clear_table">clear table</button>
                 <br><br>
             </div>
         </div>
-    </form>
+</div>
+<div id="output">
+<table>
+    <tr>
+        <th>&nbsp;x&nbsp;</th>
+        <th>&nbsp;y&nbsp;</th>
+        <th>&nbsp;r&nbsp;</th>
+        <th>&nbsp;valid&nbsp;</th>
+        <th>&nbsp;current time&nbsp;</th>
+        <th>&nbsp;script time&nbsp;</th>
+    </tr>
+</table>
 </div>
 <script src="script.js"></script>
-<script src="jquery.js"></script>
 </body>
 </html>

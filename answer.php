@@ -10,24 +10,24 @@ function checkData($x, $y, $r)
 
 function rectangle($x, $y, $r)
 {
-    return (($x <= 0) && ($x >= -$r / 2) && ($y >= 0) && ($y <= $r));
+    return (($x >= 0) && ($x <= $r ) && ($y >= 0) && ($y <= $r ));
 }
 
 function triangle($x, $y, $r)
 {
-    return (($y <= -$x + $r / 2) && ($x >= 0) && ($x <= $r / 2) && ($y >= 0) && ($y <= $r / 2));
+    return ((-$y <= ($r / 2 - $x) * 2 ) && ($x >= 0) && ($x <= $r / 2) && ($y <= 0) && (-$y <= $r));
 }
 
 function circle($x, $y, $r)
 {
-    return (($x >= 0) && ($y <= 0) && (($x * $x + $y * $y) <= $r * $r));
+    return (($x <= 0) && ($y >= 0) && (($x * $x + $y * $y) <= $r * $r / 4 ));
 }
 
 function checkCoordinates($x, $y, $r)
 {
     if (rectangle($x, $y, $r) || triangle($x, $y, $r) || circle($x, $y, $r)) {
-        return "<span style='color: green'>да</span>";
-    } else return "<span style='color: red'>X</span>";
+        return "<span style='color: green'>o</span>";
+    } else return "<span style='color: red'>x</span>";
 }
 
 @session_start();
@@ -40,7 +40,7 @@ $x = (float)$_GET["x"];
 $y = (float)$_GET["y"];
 $r = (float)$_GET["r"];
 
-
+if (checkData($x, $y, $r)) {
     $coordsStatus = checkCoordinates($x, $y, $r);
     $currentTime = date("H : i : s");
     $benchmarkTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
@@ -52,14 +52,18 @@ $r = (float)$_GET["r"];
     <td>$currentTime</td>
     <td>$benchmarkTime</td>
     </tr>");
-    echo "<table id='outputTable'>
-        <tr>
-            <th>x</th>
-            <th>y</th>
-            <th>r</th>
-            <th>Точка входит в ОДЗ</th>
-            <th>Текущее время</th>
-            <th>Время работы скрипта</th>
-        </tr>";
+    echo "<table>
+                 <tr>
+                     <th>&nbsp;x&nbsp;</th>
+                     <th>&nbsp;y&nbsp;</th>
+                     <th>&nbsp;r&nbsp;</th>
+                     <th>&nbsp;valid&nbsp;</th>
+                     <th>&nbsp;current time&nbsp;</th>
+                     <th>&nbsp;script time&nbsp;</th>
+                 </tr>";
     foreach ($_SESSION["tableRows"] as $tableRow) echo $tableRow;
-echo "</table>";
+    echo "</table>"; }
+    else {
+        http_response_code(400);
+        return;
+    }
