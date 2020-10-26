@@ -8,7 +8,7 @@ document.onsubmit = function () {
         y = document.getElementById("y_textfield").value.replace(",", ".");
         r = document.querySelector('input[name="r"]:checked').value;
         let str = '?x=' + x + '&y=' + y + '&r=' + r;
-        fetch("scripts/answer.php" + str, {
+        fetch("answer.php" + str, {
             method: "GET",
             headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
         }).then(response => response.text()).then(function (serverAnswer) {
