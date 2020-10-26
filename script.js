@@ -13,11 +13,10 @@ document.getElementById("submit").onclick = function () {
                     headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
                 }).then(response => response.text()).then(function (serverAnswer) {
                     document.getElementById("output").innerHTML = serverAnswer;
-                }).catch(err => alert("Ошибка HTTP. Повторите попытку позже." + err));
+                }).catch(err => alert("Ошибка HTTP. Повторите попытку позже. " + err));
             }
         }
     } catch (e) {
-        alert(e);
     }
 };
 
