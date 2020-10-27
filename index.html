@@ -39,7 +39,6 @@
             height: 100vh;
         }
 
-
         #main {
             display: flex;
             justify-content: center;
@@ -66,9 +65,11 @@
                 width: 100%;
                 text-align: center;
             }
-            #main{
+
+            #main {
                 flex-direction: column;
             }
+
             #form_space {
                 width: auto;
             }
@@ -90,16 +91,15 @@
             color: darkblue;
         }
 
-        .for_x label{
+        .for_x label {
             font-size: 20px;
             alignment: bottom;
             font-family: monospace;
         }
 
-        .for_r label{
+        .for_r label {
             font-size: 20px;
             alignment: bottom;
-            font-family: CarrieCattSH;
         }
 
         #output {
@@ -111,20 +111,23 @@
             margin: auto;
         }
 
-        table{
+        table {
             align-content: center;
             border: 4px darkblue;
             margin: auto;
         }
 
-        #output td{
+        #output td {
             background-color: rgba(135, 206, 250, 0.7);
             border-radius: 10px;
+            border: darkblue dotted;
+            color: darkblue;
         }
 
-        #output th{
+        #output th {
             border-radius: 10px;
             background-color: rgb(135, 206, 250);
+            border: darkblue solid;
         }
 
     </style>
@@ -133,64 +136,64 @@
 <div id="header">LAB001 KUZNECOV ALEXANDR P3211 VARIANT 2213</div>
 <div id="main">
     <div id="graph"><img src="pictures/areas.png" alt="график"></div>
-        <div id="form_space">
-            <div class="for_x">
-                <div>value x</div>
-                <div>
+    <div id="form_space">
+        <div class="for_x">
+            <div>value x</div>
+            <div>
 
-                    <label>-3<input type="checkbox" name="x" value="-3"></label>
-                    <label>-2<input type="checkbox" name="x" value="-2"></label>
-                    <label>-1<input type="checkbox" name="x" value="-1"></label>
-                    <label>0<input type="checkbox" name="x" value="0"></label>
-                    <label>1<input type="checkbox" name="x" value="1"></label>
-                    <label>2<input type="checkbox" name="x" value="2"></label>
-                    <label>3<input type="checkbox" name="x" value="3"></label>
-                    <label>4<input type="checkbox" name="x" value="4"></label>
-                    <label>5<input type="checkbox" name="x" value="5"></label>
+                <label>-3<input type="checkbox" name="x" value="-3"></label>
+                <label>-2<input type="checkbox" name="x" value="-2"></label>
+                <label>-1<input type="checkbox" name="x" value="-1"></label>
+                <label>0<input type="checkbox" name="x" value="0"></label>
+                <label>1<input type="checkbox" name="x" value="1"></label>
+                <label>2<input type="checkbox" name="x" value="2"></label>
+                <label>3<input type="checkbox" name="x" value="3"></label>
+                <label>4<input type="checkbox" name="x" value="4"></label>
+                <label>5<input type="checkbox" name="x" value="5"></label>
 
-                    <br><br>
-                </div>
-            </div>
-
-            <div class="for_y">
-                <div>value y</div>
-                <div>
-                    <input type="text" id="y_textfield" name="y" placeholder="(-5;5)" maxlength="8" required>
-                    <br><br>
-                </div>
-            </div>
-
-            <div class="for_r">
-                <div>value r</div>
-                <div>
-                    <label>1,0<input type="radio" name="r" value="1.0" ></label>
-                    <label>1,5<input type="radio" name="r" value="1.5"></label>
-                    <label>2,0<input type="radio" name="r" value="2.0" required></label>
-                    <label>2,5<input type="radio" name="r" value="2.5"></label>
-                    <label>3,0<input type="radio" name="r" value="3.0"></label>
-
-                    <br><br>
-                </div>
-            </div>
-
-            <div class="for_buttons">
-                <button id="submit">submit</button>
-                <button id="clear_table">clear table</button>
                 <br><br>
             </div>
         </div>
+
+        <div class="for_y">
+            <div>value y</div>
+            <div>
+                <input type="text" id="y_textfield" name="y" placeholder="(-5;5)" maxlength="8" required>
+                <br><br>
+            </div>
+        </div>
+
+        <div class="for_r">
+            <div>value r</div>
+            <div>
+                <label>1,0<input type="radio" name="r" value="1.0"></label>
+                <label>1,5<input type="radio" name="r" value="1.5"></label>
+                <label>2,0<input type="radio" name="r" value="2.0" required></label>
+                <label>2,5<input type="radio" name="r" value="2.5"></label>
+                <label>3,0<input type="radio" name="r" value="3.0"></label>
+
+                <br><br>
+            </div>
+        </div>
+
+        <div class="for_buttons">
+            <button id="submit" onclick="submit()">submit</button>
+            <button id="clear_table">clear table</button>
+            <br><br>
+        </div>
+    </div>
 </div>
 <div id="output">
-<table>
-    <tr>
-        <th>&nbsp;x&nbsp;</th>
-        <th>&nbsp;y&nbsp;</th>
-        <th>&nbsp;r&nbsp;</th>
-        <th>&nbsp;valid&nbsp;</th>
-        <th>&nbsp;current time&nbsp;</th>
-        <th>&nbsp;script time&nbsp;</th>
-    </tr>
-</table>
+    <table>
+        <tr>
+            <th>&nbsp;x&nbsp;</th>
+            <th>&nbsp;y&nbsp;</th>
+            <th>&nbsp;r&nbsp;</th>
+            <th>&nbsp;valid&nbsp;</th>
+            <th>&nbsp;current time&nbsp;</th>
+            <th>&nbsp;script time&nbsp;</th>
+        </tr>
+    </table>
 </div>
 <script src="script.js"></script>
 </body>

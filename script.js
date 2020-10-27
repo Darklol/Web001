@@ -2,7 +2,7 @@
 let y, r, x = [];
 
 
-document.getElementById("submit").onclick = function () {
+function submit() {
     try {
         if (validateX() && validateY() && validateR()) {
             for (let i = 0; i < x.length; i++) {
@@ -11,23 +11,29 @@ document.getElementById("submit").onclick = function () {
                 fetch("answer.php" + str, {
                     method: "GET",
                     headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"},
-                }).then(response => response.text()).then(function (serverAnswer) {
-                    document.getElementById("output").innerHTML = serverAnswer;
-                }).catch(err => alert("Ошибка HTTP. Повторите попытку позже. " + err));
+                })
+                    .then(response => response.text())
+                    .then(function (serverAnswer) {
+                        document.getElementById("output").innerHTML = serverAnswer;
+                    })
+                    .catch(err => alert("Ошибка HTTP. Повторите попытку позже. " + err));
             }
         }
     } catch (e) {
     }
-};
+}
 
 document.getElementById("clear_table").onclick = function () {
     try {
         fetch("clear.php", {
             method: "POST",
             headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"}
-        }).then(response => response.text()).then(function (serverAnswer) {
-            document.getElementById("output").innerHTML = serverAnswer;
-        }).catch(err => alert("Ошибка HTTP. Повторите попытку позже." + err));
+        })
+            .then(response => response.text())
+            .then(function (answer) {
+                document.getElementById("output").innerHTML = answer;
+            })
+            .catch(err => alert("Ошибка HTTP. Повторите попытку позже." + err));
     } catch (e) {
         alert(e);
     }

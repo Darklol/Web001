@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 
-function checkData($x, $y, $r)
+function check($x, $y, $r)
 {
     return in_array($x, array(-3, -2, -1, 0, 1, 2, 3, 4, 5)) &&
         is_numeric($y) && ($y > -5 && $y < 5) &&
@@ -40,7 +40,7 @@ $x = (float)$_GET["x"];
 $y = (float)$_GET["y"];
 $r = (float)$_GET["r"];
 
-if (checkData($x, $y, $r)) {
+if (check($x, $y, $r)) {
     $coordsStatus = checkCoordinates($x, $y, $r);
     $currentTime = date("H : i : s");
     $benchmarkTime = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
